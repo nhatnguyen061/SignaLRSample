@@ -46,6 +46,7 @@ app.MapControllerRoute(
 app.MapRazorPages();
 //định tuyến route cho hubs đã đăng ký
 app.MapHub<UserHub>("/hubs/userCount");
-app.MapHub<DeathlyHallowsHub>("hubs/deathyhallows");
-app.MapHub<HouseGroupHub>("hubs/houseGroup");
+app.MapHub<DeathlyHallowsHub>("/hubs/deathyhallows");
+app.MapHub<HouseGroupHub>("/hubs/houseGroup");
+app.MapHub<NotificationHub>("/hubs/notification");
 app.Run();

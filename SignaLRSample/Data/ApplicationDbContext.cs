@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SignaLRSample.Models;
 
 namespace SignaLRSample.Data
 {
@@ -9,5 +10,6 @@ namespace SignaLRSample.Data
             : base(options)
         {
         }
+        public DbSet<Order> Orders { get; set; }
     }
 }

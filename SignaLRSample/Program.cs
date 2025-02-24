@@ -15,8 +15,10 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+//tạo chuỗi connect toiwsd signalR trên Azure
+var connectionAzureSignlR = "Endpoint=https://signalrservicenhat.service.signalr.net;AccessKey=6ZK2HPDY32Xs0KDw0T5bqdXkP1qV87WqNdkEmiJ1AM77Rntzp3PuJQQJ99BBACqBBLyXJ3w3AAAAASRSwSng;Version=1.0;";
 //add signaLR
-builder.Services.AddSignalR();
+builder.Services.AddSignalR().AddAzureSignalR(connectionAzureSignlR);
 
 
 var app = builder.Build();
@@ -50,4 +52,5 @@ app.MapHub<DeathlyHallowsHub>("/hubs/deathyhallows");
 app.MapHub<HouseGroupHub>("/hubs/houseGroup");
 app.MapHub<NotificationHub>("/hubs/notification");
 app.MapHub<ChatHub>("/hubs/chat");
+app.MapHub<OrderHub>("/hubs/order");
 app.Run();
